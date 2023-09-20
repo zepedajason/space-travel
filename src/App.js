@@ -17,13 +17,17 @@ function App() {
       {
         // todo wrap with BrowserRouter and render the necessary components
         <div className={styles["app"]}>
-          <header className={styles["app__header"]}>todo</header>
+          <header className={styles["app__header"]}>
+            <NavigationBar />
+          </header>
 
           <main className={styles["app__main"]}>
-            <Home />
+            <AppRoute />
           </main>
 
-          <footer className={styles["app__footer"]}>todo</footer>
+          <footer className={styles["app__footer"]}>
+            <Motto />
+          </footer>
         </div>
       }
 
