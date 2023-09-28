@@ -11,7 +11,7 @@ function Spacecraft() {
   const { enableLoading, disableLoading } = useContext(LoadingContext);
 
   useEffect(() => {
-    // todo get spacecraft from the API using the ID from the route (very similar to what we did in Planets.js)
+    //get spacecraft from the API using the ID from the route (very similar to what we did in Planets.js)
     async function runGetSpacecrafts() {
       let res = (await SpaceTravelApi.getSpacecraftById({ id })).data;
       setSpacecraft(res);

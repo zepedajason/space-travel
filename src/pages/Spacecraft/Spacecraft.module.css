@@ -1,12 +1,10 @@
-.spacecraft
-{
+.spacecraft {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
-.spacecraft__imageContainer
-{
+.spacecraft__imageContainer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,37 +15,31 @@
   border: 2px dotted #ffffff;
 }
 
-.spacecraft__image
-{
+.spacecraft__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.spacecraft__image--default
-{
-  font-size: 4.8rem;
+.spacecraft__image--default {
+  font-size: 5rem;
 }
 
-.spacecraft__infoContainer
-{
+.spacecraft__infoContainer {
   display: flex;
   width: 100%;
 }
 
-.spacecraft__info
-{
-  font-size: 1.2rem;
+.spacecraft__info {
+  font-size: 16px;
   width: 50%;
 }
 
-.spacecraft__infoHeader
-{
+.spacecraft__infoHeader {
   margin-bottom: 2rem;
 }
 
-.spacecraft__infoText
-{
-  font-size: 1rem;
+.spacecraft__infoText {
+  font-size: 14px;
   text-align: justify;
 }

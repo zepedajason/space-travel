@@ -10,7 +10,7 @@ function Spacecrafts() {
   const { enableLoading, disableLoading } = useContext(LoadingContext);
 
   async function getSpacecrafts() {
-    // todo get spacecrafts using the API
+    //get spacecrafts using the API
 
     const { data: spacecrafts, isError } =
       await SpaceTravelApi.getSpacecrafts();
@@ -32,14 +32,13 @@ function Spacecrafts() {
   const navigate = useNavigate();
 
   function handleClickOfBuild() {
-    // todo navigate to build spacecraft page
-    //<Route path="/spacecraft/build" element={<SpacecraftBuild />}></Route>
+    // navigate to build spacecraft page
+
     navigate("/spacecraft/build");
   }
 
   function handleClickOfImageContainer(event, id) {
     navigate(`/spacecraft/${id}`);
-    console.log(id);
   }
 
   async function handleClickOfDestroy(event, id) {
@@ -53,7 +52,9 @@ function Spacecrafts() {
 
   return (
     <div>
-      <button onClick={handleClickOfBuild}>🏗 Build a Spacecraft</button>
+      <button onClick={handleClickOfBuild} style={{ fontSize: "12px" }}>
+        🏗 Build a Spacecraft
+      </button>
       <div>
         {spacecrafts.map((spacecraft, index) => (
           <div key={spacecraft.id} className={styles["spacecraft"]}>
@@ -88,6 +89,7 @@ function Spacecrafts() {
 
             <div>
               <button
+                style={{ fontSize: "12px" }}
                 onClick={(event) => handleClickOfDestroy(event, spacecraft.id)}
               >
                 💥 Destroy

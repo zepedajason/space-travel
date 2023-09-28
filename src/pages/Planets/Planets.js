@@ -18,7 +18,7 @@ function Planets() {
       await SpaceTravelApi.getSpacecrafts();
 
     if (!isErrorPlanets && !isErrorSpacecrafts) {
-      // todo fill planets.spacecrafts with spacecrafts
+      // fill planets.spacecrafts with spacecrafts
       // filter spacecraft that match current planets id
       const updatedPlanets = planets.map((planet) => {
         const planetSpacecrafts = spacecrafts.filter(
@@ -47,16 +47,19 @@ function Planets() {
   }, [enableLoading, disableLoading]);
 
   function handleClickOfPlanet(event, id) {
-    // todo set the selected planet
-    setSelectedPlanetId(id);
+    //set the selected planet
+    if (!isLoading) {
+      setSelectedPlanetId(id);
+    }
   }
 
   async function handleClickOfSpacecraft(event, spacecraftId, planetId) {
-    // todo set the selected spacecraft
-    // todo send spacecraft to planet using the API
-    // todo call getPlanetsWithSpacecrafts to refresh the page content
+    //set the selected spacecraft
+    //send spacecraft to planet using the API
+    //call getPlanetsWithSpacecrafts to refresh the page content
     if (selectedPlanetId !== planetId) {
       setSelectedSpacecraftId(spacecraftId);
+      enableLoading();
       await SpaceTravelApi.sendSpacecraftToPlanet({
         spacecraftId,
         targetPlanetId: selectedPlanetId,
@@ -64,6 +67,7 @@ function Planets() {
       await getPlanetsWithSpacecrafts();
       setSelectedPlanetId(null);
       setSelectedSpacecraftId(null);
+      disableLoading();
     }
   }
 

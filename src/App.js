@@ -11,28 +11,35 @@ import Loading from "./components/Loading/Loading";
 
 function App() {
   const { isLoading } = useContext(LoadingContext);
+  function clearLocalStorage() {
+    localStorage.clear();
+  }
 
   return (
     <>
       {
         // todo wrap with BrowserRouter and render the necessary components
-        <div className={styles["app"]}>
-          <header className={styles["app__header"]}>
-            <NavigationBar />
-          </header>
+        <BrowserRouter>
+          <div className={styles["app"]}>
+            <header className={styles["app__header"]}>
+              <NavigationBar />
+            </header>
 
-          <main className={styles["app__main"]}>
-            <AppRoute />
-          </main>
+            <main className={styles["app__main"]}>
+              <AppRoute />
+            </main>
 
-          <footer className={styles["app__footer"]}>
-            <Motto />
-          </footer>
-        </div>
+            <footer className={styles["app__footer"]}>
+              <button onClick={clearLocalStorage}>Clear Storage</button>
+              <Motto />
+            </footer>
+          </div>
+        </BrowserRouter>
       }
 
       {
         // todo render Loading based on its condition
+        isLoading && <Loading />
       }
     </>
   );
